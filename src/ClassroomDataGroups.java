@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ClassroomDataGroups {
+    static final int groupsCount = 12;
     private ArrayList<Student>[] studentsGroupMap;
     public ClassroomDataGroups(){
-        studentsGroupMap = new ArrayList[12];
-        for(int i = 0; i < 12; i++){
+        studentsGroupMap = new ArrayList[groupsCount];
+        for(int i = 0; i < groupsCount; i++){
             studentsGroupMap[i] = new ArrayList();
         }
     }

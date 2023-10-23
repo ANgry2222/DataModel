@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class NameDataGroups {
-
+    static final int lettersCount = 33;
     private ArrayList<Student>[] studentsNameMap;
     public NameDataGroups(){
-        studentsNameMap = new ArrayList[33];
-        for(int i = 0; i < 33; i++){
+        studentsNameMap = new ArrayList[lettersCount];
+        for(int i = 0; i < lettersCount; i++){
             studentsNameMap[i] = new ArrayList();
         }
     }

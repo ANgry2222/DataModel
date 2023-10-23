@@ -1,6 +1,5 @@
-import java.util.Arrays;
-
 public class Student {
+    static final int subjectsCount = 6;
     private String family;
     private String name;
     private int age;
@@ -32,17 +31,17 @@ public class Student {
         for (int s: marks) {
             result += s;
         }
-        return (float) result / 6;
+        return (float) result / subjectsCount;
     }
 
     public Student(String studentString){
-        marks = new int[6];
+        marks = new int[subjectsCount];
         String[] studentStringArray = studentString.split(";");
         this.family = studentStringArray[0];
         this.name = studentStringArray[1];
         this.age = Integer.parseInt(studentStringArray[2]);
         this.group = Integer.parseInt(studentStringArray[3]);
-        for (int i = 4; i < 10; i++){
+        for (int i = 4; i < 4 + subjectsCount; i++){
             marks[i-4] = Integer.parseInt(studentStringArray[i]);
         }
     }

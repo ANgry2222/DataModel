@@ -59,12 +59,14 @@ public class Main {
     public static void highClassAverageMarks(){
         float tenthGrade = findAverageMarkForClassGroup(10);
         float eleventhGrade = findAverageMarkForClassGroup(11);
+        float twelfthGrade = findAverageMarkForClassGroup(12);
         System.out.printf("Средняя оценка учеников 10 класса: %.4f\n", tenthGrade);
         System.out.printf("Средняя оценка учеников 11 класса: %.4f\n", eleventhGrade);
-        System.out.printf("Общая средняя оценка учеников страших классов: %.4f\n", (tenthGrade + eleventhGrade)/2);
+        System.out.printf("Средняя оценка учеников 12 класса: %.4f\n", twelfthGrade);
+        System.out.printf("Общая средняя оценка учеников страших классов: %.4f\n", (tenthGrade + eleventhGrade + twelfthGrade) / 3);
     }
 
-    static float findAverageMarkForClassGroup(int group){
+    public static float findAverageMarkForClassGroup(int group){
         float result = 0;
         for (Student s: cdg.getStudentsByGroup(group)) {
             result += s.getAverageMark();
@@ -72,7 +74,7 @@ public class Main {
         return result / cdg.getStudentsByGroup(group).size();
     }
 
-    static void fillDataGroups(){
+    public static void fillDataGroups(){
         cdg = new ClassroomDataGroups();
         adg = new AgeDataGroups();
         ndg = new NameDataGroups();
