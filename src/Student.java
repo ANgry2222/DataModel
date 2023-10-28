@@ -6,20 +6,12 @@ public class Student {
     private int group; //Класс ученика
     private int[] marks; //Список оценок
 
-    public char getFamilyFirstLetter(){
-        return family.toLowerCase().toCharArray()[0];
-    }
-
     public int getAge() {
         return age;
     }
 
     public int getGroup() {
         return group;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getFullName(){
