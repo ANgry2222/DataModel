@@ -17,7 +17,7 @@ public class Task2 implements Command {
     public void execute() {
         int minAge = 14;
         float marksCriteria = 5.0f;
-        StudentService studentService = new StudentService(dg, new LoadStudentsData("res/students.csv"));
+        StudentService studentService = new StudentService(dg, new LoadStudentsData("../res/students.csv"));
         StringBuilder resultBuilder = new StringBuilder();
         for(int i = minAge; i < studentService.getMapSize(); i++){
             resultBuilder.append(String.format("Ученики %d лет с оценками выше %.2f:\n", i, marksCriteria));

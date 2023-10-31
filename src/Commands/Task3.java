@@ -18,7 +18,7 @@ public class Task3 implements Command {
     @Override
     public void execute() {
         StringBuilder resultBuilder = new StringBuilder();
-        StudentService studentService = new StudentService(dg, new LoadStudentsData("res/students.csv"));
+        StudentService studentService = new StudentService(dg, new LoadStudentsData("../res/students.csv"));
         for (Student s: studentService.getStudentsByKey(name.toLowerCase().toCharArray()[0] - 'а')) {
             if(s.getFullName().startsWith(name))
                 resultBuilder.append(String.format("%s, %d лет\n", s.getFullName(), s.getAge()));
