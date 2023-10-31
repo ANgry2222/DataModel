@@ -1,4 +1,12 @@
-class Task1 implements Command{
+package Commands;
+
+import Interfaces.Command;
+import Main.DataGroup;
+import Main.LoadStudentsData;
+import Main.Student;
+import Main.StudentService;
+
+public class Task1 implements Command {
     private DataGroup dg;
     private String result;
     public Task1(DataGroup dg){
@@ -7,7 +15,7 @@ class Task1 implements Command{
     }
     @Override
     public void execute() {
-        StudentService studentService = new StudentService(dg, new LoadStudentsData("students.csv"));
+        StudentService studentService = new StudentService(dg, new LoadStudentsData("../res/students.csv"));
 
         float tenthGrade = findAverageMarkForClassGroup(10, studentService);
         float eleventhGrade = findAverageMarkForClassGroup(11, studentService);

@@ -1,9 +1,13 @@
+package Main;
+
+import Commands.*;
+import Interfaces.Command;
 import java.util.Scanner;
 
 public class CommandBuilder {
-    public DataGroup adg = new DataGroup(Student -> Student.getAge());
-    DataGroup ndg = new DataGroup(Student -> Student.getFullName().toLowerCase().toCharArray()[0] - 'а');
-    DataGroup cdg = new DataGroup(Student -> Student.getGroup());
+    DataGroup adg = new DataGroup(student -> student.getAge());
+    DataGroup ndg = new DataGroup(student -> student.getFullName().toLowerCase().toCharArray()[0] - 'а');
+    DataGroup cdg = new DataGroup(student -> student.getGroup());
 
     public CommandBuilder(){
         printMenu();
@@ -15,24 +19,28 @@ public class CommandBuilder {
             switch (input){
                 case "1": {
                     executeCommand = new Task1(cdg);
-                    exit = true;
                     break;
                 }
                 case "2": {
                     executeCommand = new Task2(adg);
-                    exit = true;
                     break;
                 }
                 case "3": {
                     System.out.println("Введите имя ученика для поиска и нажмите [Enter]");
                     executeCommand = new Task3(consoleScanner.nextLine(), ndg);
-                    exit = true;
                     break;
                 }
+                case "4":{
+                    return;
+                }
+                default:{
+                    executeCommand = new WrongCommand();
+                }
             }
+            executeCommand.execute();
+            executeCommand.printResult();
+            printMenu();
         }
-        executeCommand.execute();
-        executeCommand.printResult();
     }
 
     private void printMenu(){
@@ -41,5 +49,6 @@ public class CommandBuilder {
         System.out.println("1. Вычислить среднюю оценку в старших классах");
         System.out.println("2. Поиск всех отличников старше 14 лет");
         System.out.println("3. Поиск ученика по фамилии");
+        System.out.println("4. Выход");
     }
 }

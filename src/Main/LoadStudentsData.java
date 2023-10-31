@@ -1,11 +1,14 @@
+package Main;
+
+import Interfaces.DataLoader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class LoadStudentsData implements DataLoader{
-    String filePath = null;
+public class LoadStudentsData implements DataLoader {
     private List<Student> studentsList = null;
 
     public List<Student> getData() {
@@ -13,12 +16,11 @@ public class LoadStudentsData implements DataLoader{
     }
 
     public LoadStudentsData(String filePath){
-        this.filePath = filePath;
         studentsList = new ArrayList<Student>();
-        readDataFromFile();
+        readDataFromFile(filePath);
     }
 
-    public void readDataFromFile(){
+    public void readDataFromFile(String filePath){
         Scanner sc = null;
 
         try {

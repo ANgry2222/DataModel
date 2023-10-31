@@ -1,4 +1,12 @@
-class Task3 implements Command{
+package Commands;
+
+import Interfaces.Command;
+import Main.DataGroup;
+import Main.LoadStudentsData;
+import Main.Student;
+import Main.StudentService;
+
+public class Task3 implements Command {
     private DataGroup dg;
     private String result;
     private String name;
@@ -10,7 +18,7 @@ class Task3 implements Command{
     @Override
     public void execute() {
         StringBuilder resultBuilder = new StringBuilder();
-        StudentService studentService = new StudentService(dg, new LoadStudentsData("students.csv"));
+        StudentService studentService = new StudentService(dg, new LoadStudentsData("res/students.csv"));
         for (Student s: studentService.getStudentsByKey(name.toLowerCase().toCharArray()[0] - 'а')) {
             if(s.getFullName().startsWith(name))
                 resultBuilder.append(String.format("%s, %d лет\n", s.getFullName(), s.getAge()));

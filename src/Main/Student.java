@@ -1,3 +1,5 @@
+package Main;
+
 public class Student {
     static final int subjectsCount = 6;
     private String family;
